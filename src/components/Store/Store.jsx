@@ -1,47 +1,54 @@
-import React from "react";
+import React,{use, useContext} from "react";
 import Button from 'react-bootstrap/Button';
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
+import CartContext from "../../context/CartContext";
 
 const Store = () => {
-  const productsArr = [
-    {
-      title: "Colors",
+const productsArr = [
+  {
+    id: 1,
+    title: "Colors",
 
-      price: 100,
+    price: 100,
 
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-    },
+    imageUrl:
+      "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+  },
 
-    {
-      title: "Black and white Colors",
+  {
+    id: 2,
+    title: "Black and white Colors",
 
-      price: 50,
+    price: 50,
 
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-    },
+    imageUrl:
+      "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+  },
 
-    {
-      title: "Yellow and Black Colors",
+  {
+    id: 3,
+    title: "Yellow and Black Colors",
 
-      price: 70,
+    price: 70,
 
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-    },
+    imageUrl:
+      "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+  },
 
-    {
-      title: "Blue Color",
+  {
+    id: 4,
+    title: "Blue Color",
 
-      price: 100,
+    price: 100,
 
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-    },
-  ];
+    imageUrl:
+      "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+  },
+];
+
+  const cartCtx=useContext(CartContext);
 
   return (
     <Container>
@@ -49,7 +56,7 @@ const Store = () => {
       <Row>
         {productsArr.map((product) => {
           return (
-            <Col className=" mb-5">
+            <Col className=" mb-5" key={product.id}>
             <div className="d-flex flex-column align-items-center">
                 <h4 className="text-center">{product.title}</h4>
               <img src={product.imageUrl} alt={product.title}></img>
@@ -58,7 +65,7 @@ const Store = () => {
               
               <div className="d-flex justify-content-between align-items-center mt-3 px-3">
                  <p>${product.price} </p>
-              <Button>Buy Now</Button>
+              <Button onClick={()=>{cartCtx.addToCart({...product, quantity: 1})}}>Add To Cart</Button>
               </div>
              
             </Col>

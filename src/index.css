@@ -1,0 +1,14 @@
+.cart-sidebar{
+    position: fixed;
+  top: 55px;
+  right: 0;
+   width: 400px;
+  height: 100vh;
+
+  background-color: white;
+
+  padding: 20px;
+
+  overflow-y: auto;
+
+}

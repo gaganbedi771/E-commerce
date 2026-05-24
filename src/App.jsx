@@ -1,22 +1,27 @@
-import React from 'react'
-import Header from "./components/Header"
-import Title from "./components/Title"
-import Footer from "./components/Footer"
-import Home from "./components/Home/Home"
-import Store from "./components/Store/Store"
-import About from "./components/About/About"
+import React,{useContext} from "react";
+import Header from "./components/Header";
+import Title from "./components/Title";
+import Footer from "./components/Footer";
+import Home from "./components/Home/Home";
+import Store from "./components/Store/Store";
+import About from "./components/About/About";
+import Cart from "./components/Cart/Cart";
+import CartContext from "./context/CartContext";
 
 const App = () => {
+  const cartCtx = useContext(CartContext);
+
   return (
     <div>
+      {cartCtx.showCart && <Cart> </Cart>}
       <Header></Header>
       <Title></Title>
       {/* <Home></Home> */}
       <Store></Store>
       {/* <About></About> */}
-      <Footer>  </Footer>
+      <Footer> </Footer>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
