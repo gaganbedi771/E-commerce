@@ -1,4 +1,5 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
 import Title from "./components/Title";
 import Footer from "./components/Footer";
@@ -7,6 +8,7 @@ import Store from "./components/Store/Store";
 import About from "./components/About/About";
 import Cart from "./components/Cart/Cart";
 import CartContext from "./context/CartContext";
+import { Outlet } from "react-router-dom";
 
 const App = () => {
   const cartCtx = useContext(CartContext);
@@ -16,9 +18,7 @@ const App = () => {
       {cartCtx.showCart && <Cart> </Cart>}
       <Header></Header>
       <Title></Title>
-      {/* <Home></Home> */}
-      <Store></Store>
-      {/* <About></About> */}
+      <Outlet></Outlet>
       <Footer> </Footer>
     </div>
   );
