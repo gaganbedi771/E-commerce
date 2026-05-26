@@ -42,7 +42,7 @@ const ContactUs = () => {
     <div>
       <h2>Enter your details below and we will contact you shortly! </h2>
       <div className="formDiv">
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} className="contactForm">
           <div>
             <label htmlFor="name">Name:</label>
             <input
@@ -69,7 +69,7 @@ const ContactUs = () => {
               onChange={(e) => setMessage(e.target.value)}
             ></textarea>
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" className="submitContactUsButton">Submit</button>
         </form>
       </div>
     </div>

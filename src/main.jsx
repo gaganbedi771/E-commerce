@@ -7,9 +7,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import CartProvider from "./context/CartProvider.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home/Home.jsx";
-import Store from "./components/Store/Store.jsx";
+import Product from "./components/Product/Product.jsx";
 import About from "./components/About/About.jsx";
 import ContactUs from "./components/ContactUs/ContactUs.jsx";
+import ProductDetail from "./components/ProductDetail/ProductDetail.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/store",
-        element: <Store></Store>,
+        element: <Product></Product>,
       },
 
       {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactUs></ContactUs>, 
+      },
+      {
+        path: "/store/:id",
+        element: <ProductDetail></ProductDetail>, 
       }
     ],
   },
