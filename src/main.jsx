@@ -11,11 +11,18 @@ import Product from "./components/Product/Product.jsx";
 import About from "./components/About/About.jsx";
 import ContactUs from "./components/ContactUs/ContactUs.jsx";
 import ProductDetail from "./components/ProductDetail/ProductDetail.jsx";
+import Login from "./components/Login/Login.jsx";
+import AuthContextProvider from "./context/AuthContextProvider.jsx";
+import ProtectedRoutes from "./ProtectedRoutes.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App></App>,
+    element: (
+      <ProtectedRoutes>
+        <App></App>
+      </ProtectedRoutes>
+    ),
     children: [
       {
         path: "/",
@@ -32,18 +39,24 @@ const router = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: <ContactUs></ContactUs>, 
+        element: <ContactUs></ContactUs>,
       },
       {
         path: "/store/:id",
-        element: <ProductDetail></ProductDetail>, 
-      }
+        element: <ProductDetail></ProductDetail>,
+      },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login></Login>,
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <CartProvider>
-    <RouterProvider router={router}></RouterProvider>
-  </CartProvider>,
+  <AuthContextProvider>
+    <CartProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </CartProvider>
+  </AuthContextProvider>,
 );

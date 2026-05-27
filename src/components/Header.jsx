@@ -18,6 +18,7 @@ const Header = () => {
             <Nav.Link as={NavLink} to="/store">Store</Nav.Link>
             <Nav.Link as={NavLink} to="/about">About</Nav.Link>
             <Nav.Link as={NavLink} to="/contact">Contact</Nav.Link>
+            <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
           </Nav>
 
           <Button variant="outline-info " onClick={cartCtx.toggleCart}>
