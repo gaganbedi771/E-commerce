@@ -41,7 +41,8 @@ const Login = () => {
         if (data.error) {
           throw new Error("Authentication failed!, " + data.error.message);
         }
-        authCtx.login(data.idToken);
+
+        authCtx.login(data.idToken,data.email);
         navigate("/",{replace:true});
       } catch (error) {
         alert(error.message)

@@ -62,8 +62,11 @@ const Store = () => {
 
                 <div className="d-flex flex-column align-items-center">
                   <h4 className="text-center">{product.title}</h4>
+
                   <img src={product.imageUrl} alt={product.title}></img>
                 </div>
+            </Link>
+
 
                 <div className="d-flex justify-content-between align-items-center mt-3 px-3">
                   <p>${product.price} </p>
@@ -75,7 +78,6 @@ const Store = () => {
                     Add To Cart
                   </Button>
                 </div>
-            </Link>
 
               </Col>
           );
