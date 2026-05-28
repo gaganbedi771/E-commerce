@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+import { lazy, StrictMode, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import ReactDom from "react-dom/client";
 import "./index.css";
@@ -8,12 +8,14 @@ import CartProvider from "./context/CartProvider.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home/Home.jsx";
 import Product from "./components/Product/Product.jsx";
-import About from "./components/About/About.jsx";
+
 import ContactUs from "./components/ContactUs/ContactUs.jsx";
 import ProductDetail from "./components/ProductDetail/ProductDetail.jsx";
 import Login from "./components/Login/Login.jsx";
 import AuthContextProvider from "./context/AuthContextProvider.jsx";
 import ProtectedRoutes from "./ProtectedRoutes.jsx";
+
+const About=lazy(()=>import ("./components/About/About.jsx"))
 
 const router = createBrowserRouter([
   {
@@ -35,7 +37,7 @@ const router = createBrowserRouter([
 
       {
         path: "/about",
-        element: <About></About>,
+        element: <Suspense fallback={<p>Loading...</p>}><About></About></Suspense>,
       },
       {
         path: "/contact",

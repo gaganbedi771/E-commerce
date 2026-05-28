@@ -3,10 +3,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
 import Title from "./components/Title";
 import Footer from "./components/Footer";
-import Home from "./components/Home/Home";
-import Store from "./components/Product/Product";
-import About from "./components/About/About";
-import Cart from "./components/Cart/Cart";
 import CartContext from "./context/CartContext";
 import { Outlet } from "react-router-dom";
 

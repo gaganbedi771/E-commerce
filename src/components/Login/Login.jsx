@@ -23,7 +23,7 @@ const Login = () => {
     if (isLogin) {
       try {
         const response = await fetch(
-          "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBjN7mZ1axTHHgEQNmj-2DQRlzEmEGyGHw",
+          `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${import.meta.env.VITE_FIREBASE_API_KEY}`,
           {
             method: "POST",
             body: JSON.stringify({
@@ -50,7 +50,7 @@ const Login = () => {
     } else {
       try {
         const response = await fetch(
-          "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBjN7mZ1axTHHgEQNmj-2DQRlzEmEGyGHw",
+          `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${import.meta.env.VITE_FIREBASE_API_KEY}`,
           {
             method: "POST",
             body: JSON.stringify({
